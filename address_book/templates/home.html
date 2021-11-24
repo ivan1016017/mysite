@@ -2,7 +2,35 @@
 
 {% block content %} 
 
-  <h1>Hello World</h1>
+<br/>
+  
+<div class="container">
+  <div class="row">
 
+  {% if all_addresses%}
+    {% for address in all_addresses %}
+      <div class="col-sm">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{address.name}}</h5>
+            <p class="card-text">
+              {{address.name}}<br/>
+              {{address.email}}<br/>
+              {{address.phone}}<br/>
+              {{address.address}}<br/>
+              {{address.city}}<br/>
+              {{address.state}}<br/>
+              {{address.zip}}<br/>
+            </p>
+            <a href="{% url 'edit' address.id %}" class="btn btn-secondary">Edit</a>
+          </div>
+        </div>
+        <br/>
+      </div>
+
+    {% endfor %}
+  {% endif %}
+</div>
+  </div>
 
 {% endblock %} 
